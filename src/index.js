@@ -1,5 +1,11 @@
 function refreshWeather(response) {
   console.log(response);
+  if (response.data.hasOwnProperty("message")) {
+    alert(
+      "We cannot find this city in our database! Please try again with a new city."
+    );
+    return 0;
+  }
   let temperatureElement = document.querySelector("#temperature");
   let temperature = response.data.temperature.current;
   let cityElement = document.querySelector("#city");
